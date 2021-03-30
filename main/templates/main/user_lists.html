@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block title %} View Your Lists {% endblock %}
+{% block content %}
+<style>
+    .lists{
+        list-style-type: none;
+        background-color: #28A745;
+        width: 300px;
+        border-radius: 10px;
+        
+    }
+    .list_name{
+        color: white;
+        background-color: #28A745;
+        font-size: 25px; 
+    }
+    .list_name:hover{
+        color: white;
+    }
+
+</style>     
+
+<h2>That's Your Lists</h2>
+        <ul class="lists">
+        {% for list in user.todolist.all %}
+            <li><a href="/{{list.id}}" class="list_name">{{ list.name }}</a></li>
+        {% endfor %}
+        </ul>
+
+{% endblock %}
